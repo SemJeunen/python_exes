@@ -1,6 +1,5 @@
 import platform,socket,re,uuid,json,psutil,logging
-from github import Github
-import base64
+import os
 
 #deze functie komt van: https://stackoverflow.com/questions/3103178/how-to-get-the-system-info-with-python
 def getSystemInfo():
@@ -19,16 +18,14 @@ def getSystemInfo():
     except Exception as e:
         logging.exception(e)
 
+ 
+
 with open('log.txt', 'w') as file:
     file.write(getSystemInfo())
 
- 
-username = "SemJeunen"
-repo_name = "python_exes"
-g = Github("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")
-user = g.get_user(username)
 
-
-repo = user.get_repo(repo_name)
-log= repo.get_contents("log.txt", ref="sysinfo_log")
-repo.update_file(log.path, "log", f"{log.content}\n{getSystemInfo()}", log.sha, branch="sysinfo_log")
+os.system("git checkout -b 'sysinfo_log'")
+os.system("git add log.txt")
+os.system("git commit -m 'log'")
+os.system("git push --set-upstream origin 'sysinfo_log'")
+os.system("git push")
