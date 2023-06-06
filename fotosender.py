@@ -8,8 +8,6 @@ for i in range(0,10):
     ret, frame = cam.read()
     cv2.imwrite(f"images/{datetime.date.today()}-{i}.png", frame)
 
-os.system("git checkout -b 'images'")
 os.system("git add .")
 os.system("git commit -m 'log'")
-os.system("git push --set-upstream origin 'images'")
 os.system("git push")
