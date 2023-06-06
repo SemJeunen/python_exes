@@ -9,5 +9,5 @@ for i in range(0,10):
     cv2.imwrite(f"images/{datetime.date.today()}-{i}.png", frame)
 
 os.system("git add .")
-os.system("git commit -m 'log'")
+os.system("git commit -m 'images-result'")
 os.system("git push")
