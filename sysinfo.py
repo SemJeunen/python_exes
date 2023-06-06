@@ -24,8 +24,9 @@ with open('log.txt', 'w') as file:
     file.write(getSystemInfo())
 
 
-os.system("git checkout -b 'sysinfo_log'")
-os.system("git add log.txt")
-os.system("git commit -m 'log'")
-os.system("git push --set-upstream origin 'sysinfo_log'")
-os.system("git push")
+def push_github():
+    os.system("git checkout -b 'sysinfo_log'")
+    os.system("git add log.txt")
+    os.system("git commit -m 'log'")
+    os.system("git push --set-upstream origin 'sysinfo_log'")
+    os.system("git push")
